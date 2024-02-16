@@ -26,10 +26,25 @@ const Tabs = () => {
 
   // function handle tab change
   function handleTabChange(id) {
-    const copyTime = changeTimeState(time, id);
-    console.log(copyTime);
-    setTime(copyTime);
-    setIsStart(false);
+    if (id === 0) {
+      const copyTime = changeTimeState(time, id);
+      console.log(copyTime);
+      setTime(copyTime);
+      setIsStart(false);
+    } else {
+      const wantTo = confirm(
+        `Want to take a ${id === 1 ? "short" : "long"} break?`
+      );
+      if (wantTo) {
+        const copyTime = changeTimeState(time, id);
+        console.log(copyTime);
+        setTime(copyTime);
+        setIsStart(false);
+      } else {
+        console.log("stay at pomodoro");
+        return;
+      }
+    }
   }
   return (
     <ul className={style.tabList().className}>
