@@ -1,3 +1,7 @@
+// Header
 import Header from "./Header/Header";
+// Hero
+import Hero from "./Hero/Hero";
 
-export { Header };
+// export
+export { Header, Hero };

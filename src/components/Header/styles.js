@@ -1,6 +1,6 @@
 export const style = {
   header: () => {
-    return { style: null, className: `main-header flex-between p-1` };
+    return { style: null, className: `main-header flex-between pb-1` };
   },
   heading: () => {
     return {
@@ -11,7 +11,7 @@ export const style = {
   listItem: () => {
     return {
       style: {
-        backgroundColor: "var(--clr-1-500)",
+        backgroundColor: "var(--clr-500)",
       },
       className: `p-8 br-4 fs-small fw-500`,
     };

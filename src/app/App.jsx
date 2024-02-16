@@ -1,13 +1,13 @@
 // context from react
 import { useContext } from "react";
 // components
-import { Header } from "../components";
+import { Header, Hero } from "../components";
 // styles
 import { style } from "./style.js";
 // global context
 import { Context } from "../context/ContextProvider.jsx";
 // utils
-import { findCurrentTab } from "./utils.js";
+import { findCurrentTab } from "../utils.js";
 // css
 import "./App.css";
 
@@ -18,8 +18,9 @@ const App = () => {
   //* current tab(Pomodoro, Shortbreak, Longbreak)
   const currentTab = findCurrentTab(time);
   return (
-    <main className={style.background(currentTab)}>
+    <main className={style.background(currentTab)} data-theme={currentTab}>
       <Header />
+      <Hero />
     </main>
   );
 };

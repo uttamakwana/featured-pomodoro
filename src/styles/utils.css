@@ -376,6 +376,10 @@
   max-width: 100%;
 }
 
+.max-content {
+ width: max-content;
+}
+
 /* display */
 .block {
   display: block;
