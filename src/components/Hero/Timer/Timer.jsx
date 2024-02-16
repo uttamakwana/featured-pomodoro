@@ -1,16 +1,18 @@
 // tabs component
 import Tabs from "../Tabs/Tabs";
+import Clock from "../Clock/Clock.jsx";
 // styles
-import { style } from "./style.js";
+import { timer } from "./style.js";
 
 const Timer = () => {
   return (
     <>
       <div
-        className={`${style.timerContainer().className}`}
-        style={style.timerContainer().style}
+        className={timer.timerContainer().className}
+        style={timer.timerContainer().style}
       >
         <Tabs />
+        <Clock />
       </div>
     </>
   );

@@ -8,11 +8,12 @@ import { style } from "./style.js";
 import { Context } from "../../../context/ContextProvider.jsx";
 // css
 import "./tabs.css";
+import { changeTimeState } from "./utils.js";
 
 // component
 const Tabs = () => {
   //* state variable from context
-  const { time, setTime } = useContext(Context);
+  const { time, setTime, setIsStart } = useContext(Context);
   //* tabs
   const tabs = [
     { title: "Pomodoro", value: "pomodoro" },
@@ -25,20 +26,10 @@ const Tabs = () => {
 
   // function handle tab change
   function handleTabChange(id) {
-    const copyTime = time.map((item) => {
-      if (item.id === id) {
-        return {
-          ...item,
-          active: true,
-        };
-      } else {
-        return {
-          ...item,
-          active: false,
-        };
-      }
-    });
+    const copyTime = changeTimeState(time, id);
+    console.log(copyTime);
     setTime(copyTime);
+    setIsStart(false);
   }
   return (
     <ul className={style.tabList().className}>

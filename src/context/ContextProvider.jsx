@@ -29,10 +29,13 @@ const ContextProvider = ({ children }) => {
       id: 2,
     },
   ]);
+  const [isStart, setIsStart] = useState(false);
 
   //* return
   return (
-    <Context.Provider value={{ time, setTime }}>{children}</Context.Provider>
+    <Context.Provider value={{ time, setTime, isStart, setIsStart }}>
+      {children}
+    </Context.Provider>
   );
 };
 

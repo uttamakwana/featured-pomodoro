@@ -9,8 +9,9 @@ export const style = {
     return {
       style: {
         backgroundColor: activeTab === currentTab && "var(--clr-600)",
+        letterSpacing: "0px",
       },
-      className: `tab-item p-8 br-4 pointer ${currentTab} flex-center text-center`,
+      className: `tab-item p-8 fw-600 br-4 pointer ${currentTab} flex-center text-center`,
     };
   },
 };
