@@ -1,0 +1,11 @@
+.app {
+  background-color: var(--clr-1-400);
+}
+
+.app.shortBreak {
+  background-color: var(--clr-2-400);
+}
+
+.app.longBreak {
+  background-color: var(--clr-3-400);
+}
