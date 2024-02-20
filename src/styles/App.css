@@ -1,0 +1,6 @@
+/* for the tablet and mobile phones */
+@media (width <= 768px) {
+  .hero {
+    flex-direction: column;
+  }
+}
