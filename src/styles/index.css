@@ -9,6 +9,10 @@
   font-family: sans-serif;
 }
 
+body {
+ color: var(--clr-white-900);
+}
+
 a {
   text-decoration: none;
 }
@@ -21,7 +25,38 @@ button {
   cursor: pointer;
 }
 
-body {
-  background-color: var(--clr-primary-900);
-  color: var(--clr-white-900);
+[data-theme="Pomodoro"] {
+  --clr-primary-100: hsl(185, 27%, 80%);
+  --clr-primary-200: hsl(185, 27%, 75%);
+  --clr-primary-300: hsl(185, 27%, 70%);
+  --clr-primary-400: hsl(185, 27%, 65%);
+  --clr-primary-500: hsl(185, 27%, 60%);
+  --clr-primary-600: hsl(185, 27%, 55%);
+  --clr-primary-700: hsl(185, 27%, 45%);
+  --clr-primary-800: hsl(185, 27%, 40%);
+  --clr-primary-900: hsl(185, 27%, 35%);
+}
+
+[data-theme="Short Break"] {
+  --clr-primary-100: hsl(168, 28%, 51%);
+  --clr-primary-200: hsl(168, 28%, 46%);
+  --clr-primary-300: hsl(168, 28%, 41%);
+  --clr-primary-400: hsl(168, 28%, 36%);
+  --clr-primary-500: hsl(168, 28%, 31%);
+  --clr-primary-600: hsl(168, 28%, 26%);
+  --clr-primary-700: hsl(168, 28%, 21%);
+  --clr-primary-800: hsl(168, 28%, 16%);
+  --clr-primary-900: hsl(168, 28%, 11%);
+}
+
+[data-theme="Long Break"] {
+  --clr-primary-100: hsl(26, 92%, 57%);
+  --clr-primary-200: hsl(26, 92%, 52%);
+  --clr-primary-300: hsl(26, 92%, 47%);
+  --clr-primary-400: hsl(26, 92%, 42%);
+  --clr-primary-500: hsl(26, 92%, 37%);
+  --clr-primary-600: hsl(26, 92%, 32%);
+  --clr-primary-700: hsl(26, 92%, 27%);
+  --clr-primary-800: hsl(26, 92%, 22%);
+  --clr-primary-900: hsl(26, 92%, 17%);
 }
