@@ -4,3 +4,9 @@
     flex-direction: column;
   }
 }
+
+.input-color {
+ border: none;
+ outline: none;
+ max-width: 100px;
+}

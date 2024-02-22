@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import Tabs from "./Tabs/Tabs";
 import Timer from "./Timer/Timer";
@@ -5,11 +7,13 @@ import Timer from "./Timer/Timer";
 import "./clock.css";
 import { changeTabTimerAndTheme } from "./utils";
 
-const Clock = () => {
-  const [activeTab, setActiveTab] = useState("Pomodoro");
-  const [pomodoro, setPomodoro] = useState(25 * 60 * 1000);
-  const [shortBreak, setShortBreak] = useState(5 * 60 * 1000);
-  const [longBreak, setLongBreak] = useState(15 * 60 * 1000);
+const Clock = ({
+  pomodoro,
+  shortBreak,
+  longBreak,
+  activeTab,
+  setActiveTab,
+}) => {
   const [clockTime, setClockTime] = useState(pomodoro);
   const [isStart, setIsStart] = useState(false);
   const [previousInterval, setPreviousInterval] = useState(null);
@@ -19,7 +23,7 @@ const Clock = () => {
   function handleChangeTab(tab) {
     setIsStart(false);
     if (tab !== activeTab) {
-      if (isStart) {
+      if (isStart || (activeTab === "Pomodoro" && clockTime < pomodoro)) {
         let sureToChange;
         if (tab === "Long Break") {
           sureToChange = confirm("Want to take a long break?");
@@ -59,7 +63,6 @@ const Clock = () => {
   function handleStartTimer() {
     setIsStart(true);
   }
-
   // handle stop timer
   function handleStopTimer() {
     setIsStart(false);
@@ -80,6 +83,11 @@ const Clock = () => {
       clearInterval(previousInterval);
     }
   }, [isStart]);
+
+  useEffect(() => {
+    setActiveTab("Pomodoro");
+    setClockTime(pomodoro);
+  }, [pomodoro, shortBreak, longBreak]);
   return (
     <div className="readable-container flex-col ai-center gap-1 bg-primary-500 p-1 br-5">
       <Tabs activeTab={activeTab} handleChangeTab={handleChangeTab} />

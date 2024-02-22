@@ -1,0 +1,5 @@
+.settings-container {
+ width: calc(100% - 2rem);
+ max-width: 400px;
+ margin-inline: auto;
+}

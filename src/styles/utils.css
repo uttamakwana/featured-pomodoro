@@ -176,6 +176,10 @@
   position: absolute;
 }
 
+.right-0 {
+ right: 0;
+}
+
 .absolute-center {
   position: absolute;
   top: 50%;
