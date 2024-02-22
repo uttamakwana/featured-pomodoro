@@ -541,7 +541,7 @@
 .readable-container {
   max-width: var(--readable-width);
   margin-inline: auto;
-  width: calc(100% - calc(var(--spacing) * 2));
+  width: 100%;
 }
 
 .container {
