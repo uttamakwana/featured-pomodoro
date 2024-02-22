@@ -16,38 +16,70 @@ const Clock = () => {
   console.count("component re-rendering...");
   // functions:
   // handle change tab
+  // function handleChangeTab(tab) {
+  //   setIsStart(false);
+  //   if (tab === "Short Break") {
+  //     if (isStart) {
+  //       const sureToChange = confirm("Are you sure?");
+  //       if (sureToChange) {
+  //         changeTabTimerAndTheme(tab, shortBreak, setClockTime);
+  //       } else {
+  //         setIsStart(true);
+  //         return;
+  //       }
+  //     } else {
+  //       changeTabTimerAndTheme(tab, shortBreak, setClockTime);
+  //     }
+  //   } else if (tab === "Long Break") {
+  //     if (isStart) {
+  //       const sureToChange = confirm("Are you sure?");
+  //       if (sureToChange) {
+  //         changeTabTimerAndTheme(tab, longBreak, setClockTime);
+  //       } else {
+  //         setIsStart(true);
+  //         return;
+  //       }
+  //     } else {
+  //       changeTabTimerAndTheme(tab, longBreak, setClockTime);
+  //     }
+  //   } else {
+  //     changeTabTimerAndTheme(tab, pomodoro, setClockTime);
+  //   }
+  //   setActiveTab(tab);
+  // }
+
   function handleChangeTab(tab) {
     setIsStart(false);
-    if (tab === "Short Break") {
+    if (tab !== activeTab) {
       if (isStart) {
         const sureToChange = confirm("Are you sure?");
         if (sureToChange) {
-          changeTabTimerAndTheme(tab, shortBreak, setClockTime);
+          if (tab === "Short Break") {
+            changeTabTimerAndTheme(tab, shortBreak, setClockTime);
+          } else if (tab === "Long Break") {
+            changeTabTimerAndTheme(tab, longBreak, setClockTime);
+          } else {
+            changeTabTimerAndTheme(tab, pomodoro, setClockTime);
+          }
+          setActiveTab(tab);
         } else {
           setIsStart(true);
           return;
         }
       } else {
-        changeTabTimerAndTheme(tab, shortBreak, setClockTime);
-      }
-    } else if (tab === "Long Break") {
-      if (isStart) {
-        const sureToChange = confirm("Are you sure?");
-        if (sureToChange) {
+        setActiveTab(tab);
+        if (tab === "Short Break") {
+          changeTabTimerAndTheme(tab, shortBreak, setClockTime);
+        } else if (tab === "Long Break") {
           changeTabTimerAndTheme(tab, longBreak, setClockTime);
         } else {
-          setIsStart(true);
-          return;
+          changeTabTimerAndTheme(tab, pomodoro, setClockTime);
         }
-      } else {
-        changeTabTimerAndTheme(tab, longBreak, setClockTime);
       }
     } else {
-      changeTabTimerAndTheme(tab, pomodoro, setClockTime);
+      setIsStart(true);
     }
-    setActiveTab(tab);
   }
-
   // handle start timer
   function handleStartTimer() {
     setIsStart(true);
