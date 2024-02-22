@@ -16,43 +16,18 @@ const Clock = () => {
   console.count("component re-rendering...");
   // functions:
   // handle change tab
-  // function handleChangeTab(tab) {
-  //   setIsStart(false);
-  //   if (tab === "Short Break") {
-  //     if (isStart) {
-  //       const sureToChange = confirm("Are you sure?");
-  //       if (sureToChange) {
-  //         changeTabTimerAndTheme(tab, shortBreak, setClockTime);
-  //       } else {
-  //         setIsStart(true);
-  //         return;
-  //       }
-  //     } else {
-  //       changeTabTimerAndTheme(tab, shortBreak, setClockTime);
-  //     }
-  //   } else if (tab === "Long Break") {
-  //     if (isStart) {
-  //       const sureToChange = confirm("Are you sure?");
-  //       if (sureToChange) {
-  //         changeTabTimerAndTheme(tab, longBreak, setClockTime);
-  //       } else {
-  //         setIsStart(true);
-  //         return;
-  //       }
-  //     } else {
-  //       changeTabTimerAndTheme(tab, longBreak, setClockTime);
-  //     }
-  //   } else {
-  //     changeTabTimerAndTheme(tab, pomodoro, setClockTime);
-  //   }
-  //   setActiveTab(tab);
-  // }
-
   function handleChangeTab(tab) {
     setIsStart(false);
     if (tab !== activeTab) {
       if (isStart) {
-        const sureToChange = confirm("Are you sure?");
+        let sureToChange;
+        if (tab === "Long Break") {
+          sureToChange = confirm("Want to take a long break?");
+        } else if (tab === "Short Break") {
+          sureToChange = confirm("Want to take a short break?");
+        } else {
+          sureToChange = confirm("Want to start working!?");
+        }
         if (sureToChange) {
           if (tab === "Short Break") {
             changeTabTimerAndTheme(tab, shortBreak, setClockTime);
