@@ -6,6 +6,13 @@
  background: var(--clr-primary-600);
 }
 
+.clock-container {
+ max-width: 500px;
+ margin-inline: auto;
+ width: calc(100% - 2rem);
+ margin-top: 2rem;
+}
+
 .clock-btn {
  padding: 0.75em 1.25em;
  border: none;

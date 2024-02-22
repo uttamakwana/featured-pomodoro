@@ -1,61 +1,33 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // components
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Clock, Header, Settings } from "./components";
 // styles
 import "./styles/App.css";
-import { applyShadesToCSSVariables } from "./utils/generateColorShades";
+import { Context } from "./store/ContextProvider";
 
 const App = () => {
-  const [pomodoro, setPomodoro] = useState(25 * 60 * 1000);
-  const [shortBreak, setShortBreak] = useState(5 * 60 * 1000);
-  const [longBreak, setLongBreak] = useState(15 * 60 * 1000);
-  const [isSettingOpen, setIsSettingOpen] = useState(false);
-  const [pomodoroColor, setPomodoroColor] = useState("#8ebabe");
-  const [shortBreakColor, setShortBreakColor] = useState("#42766b");
-  const [longBreakColor, setLongBreakColor] = useState("#ce5e09");
-  const [activeTab, setActiveTab] = useState("Pomodoro");
-
-  useEffect(() => {
-    applyShadesToCSSVariables(
-      pomodoroColor,
-      shortBreakColor,
-      longBreakColor,
-      activeTab
-    );
-  }, [activeTab]);
-
+  const { activeTab } = useContext(Context);
+  let coolText;
+  if (activeTab === "Pomodoro") {
+    coolText = "Let's get started on work!😁";
+  } else if (activeTab === "Short Break") {
+    coolText = "Have a short break to make your mind fresh🤯";
+  } else {
+    coolText = "Have a long break!🥄";
+  }
   return (
     <main className="min-h-100 bg-primary-400" data-theme="Pomodoro" id="app">
       <div className="container">
-        <Header setIsSettingOpen={setIsSettingOpen} />
-        <Clock
-          pomodoro={pomodoro}
-          shortBreak={shortBreak}
-          longBreak={longBreak}
-          pomodoroColor={pomodoroColor}
-          shortBreakColor={shortBreakColor}
-          longBreakColor={longBreakColor}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-        />
-        <Settings
-          setPomodoro={setPomodoro}
-          setShortBreak={setShortBreak}
-          setLongBreak={setLongBreak}
-          isSettingOpen={isSettingOpen}
-          setIsSettingOpen={setIsSettingOpen}
-          pomodoro={pomodoro}
-          shortBreak={shortBreak}
-          longBreak={longBreak}
-          pomodoroColor={pomodoroColor}
-          shortBreakColor={shortBreakColor}
-          longBreakColor={longBreakColor}
-          setPomodoroColor={setPomodoroColor}
-          setShortBreakColor={setShortBreakColor}
-          setLongBreakColor={setLongBreakColor}
-          activeTab={activeTab}
-        />
+        {/* Header */}
+        <Header />
+        {/* Clock */}
+        <Clock />
+        {/* Settings */}
+        <Settings />
+        <p className="app-cool-text text-center my-1 fs-body2 fw-500 italic text-primary-900">
+          {coolText}
+        </p>
       </div>
     </main>
   );

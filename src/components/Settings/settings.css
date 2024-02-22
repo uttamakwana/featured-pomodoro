@@ -1,5 +1,23 @@
 .settings-container {
- width: calc(100% - 2rem);
- max-width: 400px;
- margin-inline: auto;
+  width: calc(100% - 2rem);
+  max-width: 400px;
+  margin-inline: auto;
 }
+
+.settings-container input {
+  border: 1px solid var(--clr-white-700);
+  font-weight: 700;
+  color: var(--clr-black-900);
+}
+
+.settings-container input::placeholder {
+ font-style: italic;
+ color: var(--clr-black-100);
+ font-weight: 400;
+}
+
+.settings-container input:focus {
+  position: relative;
+  border: 1px solid var(--clr-info);
+}
+
